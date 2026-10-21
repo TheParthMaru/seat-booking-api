@@ -1,6 +1,14 @@
-def main():
-    print("Hello from seat-booking-api!")
+from fastapi import FastAPI
 
+app = FastAPI()
 
-if __name__ == "__main__":
-    main()
+seats = ["A1", "A2", "A3"]
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
+@app.get("/seats")
+def get_seats():
+    return {"seats": seats}
+    
